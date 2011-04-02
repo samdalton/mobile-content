@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<!-- Conditional comment for mobile ie7 http://blogs.msdn.com/b/iemobile/ -->
+<!-- Appcache Facts http://appcachefacts.info/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" manifest="default.appcache?v=1"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="default.appcache?v=1"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+  <title>IELTS Sample</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+  <!-- <meta name="HandheldFriendly" content="True"> -->
+  <!-- <meta name="MobileOptimized" content="320"/> -->
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />  
+
+  <link rel="stylesheet" href="stylesheets/jquery.mobile.min.css" />
+
+  <meta http-equiv="cleartype" content="on">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="stylesheets/style.css?v=1">
+ 
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="javascripts/libs/modernizr-1.7.min.js"></script>
+</head>
+
+<body>
+
+    <div id="base">   
+        
+         <section data-role="dialog" id="info">
+             <div data-role="content" class='content'>
+                <div class='contents'>
+                </div>
+                <a href="index.html#" class='close' data-role="button" class='close'>OK</a>
+             </div>
+        </section>
+        
+    </div>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+  
+  <!--[if IEMobile 7 ]>
+  <script src="javascripts/libs/css3-mediaqueries-min.js"></script>
+  <![endif]-->
+
+  <script src="javascripts/libs/jquery.min.js"></script>
+  <script src="javascripts/libs/underscore.js"></script>
+  <script src="javascripts/libs/backbone.js"></script>
+  <script src="javascripts/libs/ich.js"></script>
+  
+  <script src="javascripts/mylibs/helper.js"></script>
+  
+  <script src="javascripts/data.json"></script>
+  
+  <script src="javascripts/views/Info.js"></script>  
+  <script src="javascripts/views/exercises/Base.js"></script>
+  <script src="javascripts/views/exercises/Introduction.js"></script>
+  <script src="javascripts/views/exercises/MissingExercise.js"></script>
+  <script src="javascripts/views/exercises/MultiChoiceSimple.js"></script>
+  <script src="javascripts/views/Lesson.js"></script>
+  <script src="javascripts/views/Application.js"></script>
+  
+  <script src="javascripts/mylibs/ExerciseLoader.js"></script>
+  
+  <script src="javascripts/script.js"></script>
+  
+  
+  
+  <script src="javascripts/libs/jquery.mobile.min.js"></script>
+
+  <!-- Mustache templates -->
+  
+  <script type='text/html' id='home'>
+    <section data-role="page" id="home">
+        	<header data-role="header">
+        		<h1>IELTS Sample</h1>
+        	</header>
+
+        	<div data-role="content">
+        	    <fieldset class="ui-grid-a">
+        	        <fieldset class="ui-grid-a">
+        	            {{#lesson_titles}}
+                        	<div class="ui-block-a"><a href="index.html#{{id}}">{{title}}</a></div>
+                        {{/lesson_titles}}
+                    </fieldset>  
+                </fieldset>
+        	</div>
+    </section>
+  </script>
+  
+  <!-- Partial included via {{>header}} -->
+  <script id="header" class="partial" type="text/html">
+      <header data-role="header">
+          <a href='index.html#{{back}}' data-rel="back">Back</a>
+          <h1>{{title}}</h1>
+     	{{#info}}
+     	<a href="index.html#" class='show-info-{{id}}' data-icon='info' data-iconpos='notext'>Info</a>
+     	{{/info}}
+     	</header>
+  </script>
+    
+  <script type='text/html' id='lesson'>
+    <section data-role="page" id="{{id}}">
+       	{{>header}}
+       	<div data-role="content">
+       		<ul>
+           		{{#exercises}}
+               		<li><a href='index.html#{{exercise_id}}'>{{name}}</a></li>
+           		{{/exercises}}
+       		</ul>
+       	</div>
+   </section>
+  </script>
+  
+  <script type='text/html' id='introduction'>
+       <section data-role="page" id="{{id}}">
+          	{{>header}}
+          	<div data-role="content">	
+                <h2>Introduction</h2>
+                {{{body}}}
+          	</div>
+      </section>
+  </script>
+  
+  <script type='text/html' id='multichoicesimple'>
+   <section data-role="page" id="{{id}}">
+      	{{>header}}
+      	<div data-role="content">	
+         {{#questions}}
+            <div>{{question}}</div>
+            <div>
+                <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup">
+                    {{#answers}}
+                        <input type='radio' name='answers-{{question_id}}' value='{{correct}}' id='a-{{id}}'/>
+                        <label for='a-{{id}}'>{{text}}</label>
+                    {{/answers}}
+                </fieldset>
+                </div>
+            </div>
+         {{/questions}}
+      	</div>
+  </section>
+  </script>
+</body>
+</html>
