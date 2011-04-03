@@ -46,10 +46,6 @@
     </div>
 
   <!-- JavaScript at the bottom for fast page loading -->
-  
-  <!--[if IEMobile 7 ]>
-  <script src="javascripts/libs/css3-mediaqueries-min.js"></script>
-  <![endif]-->
 
   <script src="javascripts/libs/jquery.min.js"></script>
   <script src="javascripts/libs/underscore.js"></script>
@@ -61,14 +57,14 @@
   <script src="javascripts/data.json"></script>
   
   <script src="javascripts/views/Info.js"></script>  
-  <script src="javascripts/views/exercises/Base.js"></script>
-  <script src="javascripts/views/exercises/Introduction.js"></script>
-  <script src="javascripts/views/exercises/MissingExercise.js"></script>
-  <script src="javascripts/views/exercises/MultiChoiceSimple.js"></script>
+  <script src="javascripts/views/pages/Base.js"></script>
+  <script src="javascripts/views/pages/Introduction.js"></script>
+  <script src="javascripts/views/pages/MissingPage.js"></script>
+  <script src="javascripts/views/pages/MultiChoiceSimple.js"></script>
   <script src="javascripts/views/Lesson.js"></script>
   <script src="javascripts/views/Application.js"></script>
   
-  <script src="javascripts/mylibs/ExerciseLoader.js"></script>
+  <script src="javascripts/mylibs/PageLoader.js"></script>
   
   <script src="javascripts/script.js"></script>
   
@@ -81,15 +77,15 @@
   <script type='text/html' id='home'>
     <section data-role="page" id="home">
         	<header data-role="header">
-        		<h1>IELTS Sample</h1>
+        		<h1>Geeky Content App</h1>
         	</header>
 
         	<div data-role="content">
         	    <fieldset class="ui-grid-a">
         	        <fieldset class="ui-grid-a">
-        	            {{#lesson_titles}}
+        	            {{#page_titles}}
                         	<div class="ui-block-a"><a href="index.html#{{id}}">{{title}}</a></div>
-                        {{/lesson_titles}}
+                        {{/page_titles}}
                     </fieldset>  
                 </fieldset>
         	</div>
@@ -107,48 +103,28 @@
      	</header>
   </script>
     
-  <script type='text/html' id='lesson'>
+  <script type='text/html' id='subpage'>
     <section data-role="page" id="{{id}}">
        	{{>header}}
        	<div data-role="content">
        		<ul>
-           		{{#exercises}}
-               		<li><a href='index.html#{{exercise_id}}'>{{name}}</a></li>
-           		{{/exercises}}
+           		{{#subpages}}
+               		<li><a href='index.html#{{subpage_id}}'>{{name}}</a></li>
+           		{{/subpages}}
        		</ul>
        	</div>
    </section>
   </script>
   
-  <script type='text/html' id='introduction'>
+  <script type='text/html' id='html'>
        <section data-role="page" id="{{id}}">
           	{{>header}}
           	<div data-role="content">	
-                <h2>Introduction</h2>
                 {{{body}}}
           	</div>
       </section>
   </script>
   
-  <script type='text/html' id='multichoicesimple'>
-   <section data-role="page" id="{{id}}">
-      	{{>header}}
-      	<div data-role="content">	
-         {{#questions}}
-            <div>{{question}}</div>
-            <div>
-                <div data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
-                    {{#answers}}
-                        <input type='radio' name='answers-{{question_id}}' value='{{correct}}' id='a-{{id}}'/>
-                        <label for='a-{{id}}'>{{text}}</label>
-                    {{/answers}}
-                </fieldset>
-                </div>
-            </div>
-         {{/questions}}
-      	</div>
-  </section>
-  </script>
+
 </body>
 </html>

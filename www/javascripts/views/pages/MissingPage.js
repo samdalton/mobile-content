@@ -1,11 +1,11 @@
 $(function() {
-    backbone.views.exercises.MissingExercise = Backbone.View.extend({
+    backbone.views.pages.MissingPage = Backbone.View.extend({
         
         render : function(){
             return '';
         },
         
-        exercise_id : function() {
+        page_id : function() {
             return '';
         }
     });

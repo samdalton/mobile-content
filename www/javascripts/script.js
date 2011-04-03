@@ -1,7 +1,7 @@
 var backbone = {
     models : {},
     views : {
-        exercises : {}
+        pages : {}
     },
     collections : {}
 }, base;

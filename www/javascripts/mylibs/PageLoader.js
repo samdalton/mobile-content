@@ -1,10 +1,10 @@
 // credit to http://stackoverflow.com/questions/3216892/dynamic-object-creation
 
-function ExerciseLoader() {}
-ExerciseLoader.prototype = {
-    load : function(exercise) {
+function PageLoader() {}
+PageLoader.prototype = {
+    load : function(page) {
         var current, parts, constructorName;
-        name =  'backbone.views.exercises.' + exercise.type;
+        name =  'backbone.views.pages.' + page.type;
         parts = name.split('.');
         constructorName = parts[parts.length - 1];
         current = window;
@@ -13,9 +13,9 @@ ExerciseLoader.prototype = {
         }
 
         if (current[constructorName] != null) {
-             return new current[constructorName]({ exercise_data : exercise });
+             return new current[constructorName]({ page_data : page });
         } else {
-            return new current['MissingExercise']();
+            return new current['MissingPage']();
         }
     }
 };

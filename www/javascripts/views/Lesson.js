@@ -8,21 +8,21 @@ $(function() {
         },
         
         render : function() {
-            exercises = _.map(this.lesson.exercises, function(exercise) {
-                exercise.parent = this.lesson.title;
-                exercise.back = this.lesson_id();
-                ex = (new ExerciseLoader).load(exercise);
+            pages = _.map(this.lesson.pages, function(page) {
+                page.parent = this.lesson.title;
+                page.back = this.lesson_id();
+                ex = (new PageLoader).load(page);
                 base.append(ex.render()); 
                 return {
-                    exercise_id : ex.exercise_id(),
-                    name : exercise.name
+                    page_id : ex.page_id(),
+                    name : page.name
                 };
             }, this);
             
             return ich.lesson({
                 id : this.lesson_id(),
                 title : this.lesson.title,
-                exercises : exercises
+                pages : pages
             });
         },
         
