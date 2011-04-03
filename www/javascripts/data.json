@@ -11,7 +11,7 @@ var page_data = [
         {
             name : 'Dungeons',
             type : 'Image',
-            content : 'dungeon.png'
+            content : 'dungeon.jpeg'
         }
     ]
     
@@ -21,13 +21,13 @@ var page_data = [
     subpages: [{
         type: 'HTML',
         name : 'Tatooine',
-        content: ''
+        content: 'A wonderful planet, really.'
     },
     {
         name : 'Ewoks',
         type: 'Audio',
         info: 'Listen to the happy Yub Nub celebration song.',
-        content : ''
+        content : 'EwokSong.mp3'
     }]
 }
 ];

@@ -6,7 +6,7 @@ $(function() {
         },
         
         page_id : function() {
-            return '';
+            return 'page-missing';
         }
     });
 });

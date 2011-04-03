@@ -2,23 +2,23 @@ $(function() {
     backbone.views.Application = Backbone.View.extend({
         
         initialize : function(args) {                
-            this.lessons = _.map(args.lessons, function(lesson) {
-                return new backbone.views.Lesson({
-                    lesson : lesson
+            this.pages = _.map(args.pages, function(page) {
+                return new backbone.views.Page({
+                    page : page
                 });
             });
             this.render();
         },
         
         render : function() {
-            lesson_titles = []; // collect lesson titles here
+            page_titles = []; // collect lesson titles here
             
-            _.each(this.lessons, function(lesson) {
-               this.el.append(lesson.render()); 
-               lesson_titles.push({ id : lesson.lesson_id(), title : lesson.lesson.title });
+            _.each(this.pages, function(page) {
+               this.el.append(page.render()); 
+               page_titles.push({ id : page.page_id(), title : page.page.title });
             }, this);
             
-            this.el.prepend(ich.home({lesson_titles : lesson_titles}));
+            this.el.prepend(ich.home({page_titles : page_titles}));
         }
     });
 });

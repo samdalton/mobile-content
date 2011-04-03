@@ -9,8 +9,6 @@ var backbone = {
 $(function() {
     
     base = $("#base");
-    mainApp = new backbone.views.Application( {el : base, lessons : page_data } );
-    
-    
+    mainApp = new backbone.views.Application( {el : base, pages : page_data } );
     
 });
